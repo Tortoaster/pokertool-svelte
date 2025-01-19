@@ -1,3 +1,15 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities'
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --red: 251 54 87;
+  --black: 35 31 28;
+  --gold: 253 196 117;
+  --silver: 176 213 251;
+  --white: 255 255 255;
+  --green: 44 133 73;
+  --gray: 43 64 49;
+
+  --blacker: 0 0 0;
+}
