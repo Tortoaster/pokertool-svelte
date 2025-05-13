@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16.3-alpine
+    ports: ["5432:5432"]
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: pokertool
+    healthcheck:
+      test: "pg_isready"
+      interval: 1s
+      retries: 10
+  backend:
+    image: ghcr.io/alliander-opensource/pokertool-backend:v1.0.0
+    ports: ["8080:8080"]
+    environment:
+      POSTGRES_URL: "jdbc:postgresql://postgres:5432/pokertool"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
